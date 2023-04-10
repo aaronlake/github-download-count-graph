@@ -1,0 +1,6 @@
+    {
+      "URL": "https://api.github.com/repos/ublue-os/main/releases",
+      "S3_BUCKET": "ublue-os-graph",
+      "S3_KEY": "downloads.csv",
+      "GRAPH": "ublue-os-graph.png"
+    }

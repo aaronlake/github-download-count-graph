@@ -1,0 +1,5 @@
+test:
+  python-lambda-local -e environ.json -f lambda_handler main.py event.json
+
+clean:
+  rm ../lambda.zip
