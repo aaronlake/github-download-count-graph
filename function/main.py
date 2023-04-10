@@ -133,12 +133,14 @@ def s3_write(dataframe, graph):
     dataframe.to_csv(csv_buffer, index=False)
     try:
         s3.Object(S3_BUCKET, S3_KEY).put(Body=csv_buffer.getvalue())
+        s3.Object(S3_BUCKET, S3_KEY).Acl().put(ACL="public-read")
     except Exception as e:
         print(f"Error writing csv to S3: {e}")
         return False
 
     try:
         s3.Object(S3_BUCKET, PUBLIC_GRAPH).put(Body=graph.getvalue())
+        s3.Object(S3_BUCKET, PUBLIC_GRAPH).Acl().put(ACL="public-read")
     except Exception as e:
         print(f"Error writing graph to S3: {e}")
         return False
